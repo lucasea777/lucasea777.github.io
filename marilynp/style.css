@@ -1,0 +1,135 @@
+body {
+    font-family: kepler-std;
+    margin: 0px;
+    padding: 0px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+nav {
+    width: calc(100% - 30px);
+    padding-left: 15px;
+    flex-wrap: nowrap;
+    display: block;
+}
+
+nav .logo {
+    width: 67px;
+    height: 74px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    background-image: url(logo.svg);
+    background-size: cover;
+}
+
+ul {
+  display: inline-flex;
+  align-items: center;
+  width: calc(50% - 3vW - 38px);
+  text-align: center;
+  border-bottom: white;
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-bottom-color: rgba(228, 228, 228, 0.59);
+  vertical-align: middle;
+}
+li {
+    display: inline-block;
+    flex-grow: 1;
+}
+li > a {
+    text-decoration: none;
+    color: white;
+    padding: 0 0 40px;
+    /* margin: 0 0 40px; */
+    display: block;
+    font-family: myriad-pro;
+    font-weight: 600;
+    font-size: 1pc;
+    letter-spacing: .08em;
+}
+
+.wrapper {
+  width:100%;
+  height:100vh;
+  overflow: hidden;
+}
+
+header {
+    padding-top: 25px;
+    position: absolute;
+    z-index: 200;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.wrapper .after {
+    content: "";
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(rgba(17,17,17,.2) 0,rgba(255,255,255,0) 25%);
+}
+.hero_cont {
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.05);
+}
+.wrapper video {
+  object-fit: cover;
+  width:100%;
+  height:100%;
+}
+
+#anim-logo {
+    position: absolute;
+    top: 22%;
+    left: calc(50% - 300px);
+    width: 600px;  
+    height: auto;
+    margin: 0;
+    z-index: 4;
+}
+
+h1 {
+  font-size: 2.3vw;
+  /* padding: 0 15%; */
+  letter-spacing: 2px;
+  color:white;
+  margin: 0;
+  font-family: kepler-std;
+  position: absolute;
+  z-index: 2;
+  font-weight: 100;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  display: block;
+}
+
+p {
+  /*font-family: kepler-std;
+  line-height:1.7;
+  color:#4A4A4A;
+  margin:20px;*/
+}
+
+video::-webkit-media-controls {
+    display:none !important;
+}
+
