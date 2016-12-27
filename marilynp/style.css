@@ -6,6 +6,7 @@ body {
     background-color: rgba(0,0,0,.02);
     line-height: 1.4;
     letter-spacing: 0;
+    text-align: center;
 }
 
 h1 {
@@ -119,9 +120,17 @@ header.body_header {
     width: 100%;
 }
 
+section {
+    max-width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
 section.blabla {
     width: 730px;
     margin: auto;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 section.blabla header {
@@ -179,9 +188,9 @@ section.portada #scene .layer {
 
 .anim-logo {
     position: absolute;
-    top: 22%;
-    left: calc(50% - 300px);
-    width: 600px;  
+    top: 25%;
+    left: calc(50% - 46.875vw / 2);
+    width: 46.875vw;
     height: auto;
     margin: 0;
     z-index: 4;
