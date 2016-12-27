@@ -2,35 +2,109 @@
 <html>
 
 <head>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <title>Marilyn Producciones</title>
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="parallax.js"></script>
+    <link rel="icon" type="image/png" href="icon.png" />
 </head>
-<div class="wrapper">
-    <header>
+
+<body>
+    <header class="body_header">
         <nav>
             <ul>
                 <li><a href="#" title="Home">Home</a></li>
-                <li><a href="#" title="Blog">Blog</a></li>
-                <li><a href="#" title="Work">Work</a></li>
+                <li><a href="#" title="Sobre Nosotros">Sobre Nosotros</a></li>
+                <li><a href="#" title="Info">Info</a></li>
             </ul>
             <div class="logo"></div>
-            <ul style="float: right;">
-                <li><a href="#" title="Home">Home</a></li>
-                <li><a href="#" title="Blog">Blog</a></li>
-                <li><a href="#" title="Work">Work</a></li>
+            <ul>
+                <li><a href="#" title="Albunes">Albunes</a></li>
+                <li><a href="#contact" title="Contacto">Contacto</a></li>
+                <li><a href="#" title="...">...</a></li>
             </ul>
         </nav>
     </header>
-    <video src="fondo_portada.mp4" autoplay loop></video>
-    <div class="after"></div>
-    <div class="hero_cont">
-        <h1>Hochzeitsfotos und Hochzeitsfotografie</h1>
-        <!--<video id="anim-logo" src="logo.webm"></video>-->
-    </div>
-</div>
-<!-- This is just fillter - no need to mind it -->
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, quaerat!</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, animi, eum! Sequi ut explicabo distinctio sed quis voluptatum sunt dolorum, laudantium at quidem tempora quam praesentium, numquam. Beatae, officiis assumenda provident consequatur molestiae deserunt perspiciatis cupiditate sunt. Minus recusandae, necessitatibus, officiis, est eveniet veritatis provident a omnis, laborum incidunt i
+    <section class="portada">
+        <!--<video src="fondo_portada.mp4" autoplay loop></video>-->
+        <div id="scene">
+            <div class="layer" data-depth="0.20">
+                <img src="home.jpg">
+            </div>
+        </div>
+        <div class="content">
+            <!--<h1>Hochzeitsfotos und Hochzeitsfotografie</h1>-->
+            <video class="anim-logo" src="logo.webm" autoplay></video>
+            <img class="anim-logo" src="logo.png"></img>
+        </div>
+    </section>
+    <!-- This is just fillter - no need to mind it -->
+    <section class="blabla">
+        <header>
+            <h1>Excelencia en fotogfrafia</h1>
+            <p>Fotografia de Eventos, mi pasion y vida</p>
+        </header>
+        <p>Que naval ni que naval, yo soy una fotografa de primerisimo nivel, mas barato y mucho pero mucho mejor, sino, mira lo que esta esta pagina papa, naval tiene algo parecido? na, porque es un gil, contratame ami, no seas gil vos tambien. </p>
+        <p>Porque si contratas a otro, anda sabiendo, que al entrar aca te instalo un virus, donde te saco informacion sobre tu ubicacion, luego contrato a sicarios y ban, fuiste.</p>
+    </section>
+    <section class="carousel">
+        <article>
+            <img src="https://scontent-eze1-1.xx.fbcdn.net/v/t31.0-8/s960x960/15369991_1263793443685321_1501918083090761073_o.jpg?oh=c56dac06ad05533901bc92c15523a874&oe=59224BE3">
+            <div>
+                <span>10. December '16</span>
+                <h1>Nadia - Book 15 años</h1>
+                <p>Hermosa Nadia haciendo su book de 15 años! Ultimas sesiones del año!</p>
+            </div>
+        </article>
+        <article>
+            <img src="post.jpg">
+            <div>
+                <span>28. November '16</span>
+                <h1>Daniela & Andreas</h1>
+                <p> Air Wedding - Standesamtliche Trauung über den Wolken</p>
+            </div>
+        </article>
+        <article>
+            <img src="post.jpg">
+            <div>
+                <span>28. November '16</span>
+                <h1>Daniela & Andreas</h1>
+                <p> Air Wedding - Standesamtliche Trauung über den Wolken</p>
+            </div>
+        </article>
+    </section>
+    <section id="contact" class="blabla" style="width: 90%; margin-bottom: 20px">
+        <header>
+            <h1>Contactate con Marilyn!</h1>
+            <p>Sientete completa, llena de felicidad y gozo, al contrarme:</p>
+        </header>
+        <iframe style="margin-left: 50%;left: -250px;position: relative;" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpg%2FMarilyn-Producciones-Fotograf%C3%ADa-y-Video-854433377954665&tabs=messages&width=500&height=400&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="500" height="400" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+    </section>
+    <footer>
+        <div class="social-buttons">
+            <a class="social-button facebook" href="https://www.facebook.com/pg/Marilyn-Producciones-Fotografía-y-Video-854433377954665">
+                <i class="fa fa-facebook"></i>
+            </a>
+            <!--<a class="social-button google" href="#">
+                <i class="fa fa-youtube"></i>
+            </a>
+            <a class="social-button google" href="#">
+                <i class="fa fa-envelope"></i>
+            </a>-->
+        </div>
+    </footer>
 
 </html>
+<script>
+var scene = $('#scene')[0];
+var parallax = new Parallax(scene);
+$(document).on('click', 'a', function(event){
+    event.preventDefault();
+    $('html, body').animate({
+        scrollTop: $( $.attr(this, 'href') ).offset().top
+    }, 1000);
+});
+</script>
+</body>
