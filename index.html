@@ -6,6 +6,7 @@
     <title>Marilyn Producciones</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="social-button.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="parallax.js"></script>
@@ -13,7 +14,9 @@
 </head>
 
 <body>
+    <div class="menu-shadow"></div>
     <header class="body_header">
+        <a href="#" class="menu-icon-toggle"><span></span></a>
         <nav>
             <ul>
                 <li><a href="#" title="Home">Home</a></li>
@@ -109,6 +112,12 @@ $(document).on('click', 'a', function(event){
     $('html, body').animate({
         scrollTop: $( $.attr(this, 'href') ).offset().top
     }, 1000);
+});
+
+$('.menu-icon-toggle').on('click', function(e) {
+  $('body').toggleClass('open');
+
+  e.preventDefault();
 });
 </script>
 </body>

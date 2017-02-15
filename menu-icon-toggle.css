@@ -1,0 +1,75 @@
+    .menu-icon-toggle {
+        top: 30px;
+        right: 30px;
+        display: block;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        z-index: 9;
+    }
+    .home .menu-icon-toggle {
+        top: 50px;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+    .menu-icon-toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        top: 50%;
+        background-color: #fff;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        -webkit-transition: opacity 0.3s 0.3s;
+        transition: opacity 0.3s 0.3s;
+    }
+    .home:not(.open) .menu-icon-toggle span {
+        background-color: #fff;
+    }
+    .menu-icon-toggle::before,
+    .menu-icon-toggle::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        background-color: #fff;
+        -webkit-transition: top 0.3s 0.3s, bottom 0.3s 0.3s, -webkit-transform 0.3s;
+        transition: top 0.3s 0.3s, bottom 0.3s 0.3s, -webkit-transform 0.3s;
+        transition: transform 0.3s, top 0.3s 0.3s, bottom 0.3s 0.3s;
+        transition: transform 0.3s, top 0.3s 0.3s, bottom 0.3s 0.3s, -webkit-transform 0.3s;
+    }
+    .menu-icon-toggle::before {
+        top: 6px;
+    }
+    .menu-icon-toggle::after {
+        bottom: 6px;
+    }
+    .open .menu-icon-toggle span {
+        opacity: 0;
+        -webkit-transition: opacity 0.3s;
+        transition: opacity 0.3s;
+    }
+    .open .menu-icon-toggle::before,
+    .open .menu-icon-toggle::after {
+        background-color: #6191d1;
+    }
+    .open .menu-icon-toggle::before {
+        top: calc(50% - 1px);
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    .open .menu-icon-toggle::after {
+        bottom: calc(50% - 1px);
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+    .open .menu-icon-toggle::before,
+    .open .menu-icon-toggle::after {
+        -webkit-transition: top 0.3s, bottom 0.3s, -webkit-transform 0.3s 0.3s;
+        transition: top 0.3s, bottom 0.3s, -webkit-transform 0.3s 0.3s;
+        transition: top 0.3s, bottom 0.3s, transform 0.3s 0.3s;
+        transition: top 0.3s, bottom 0.3s, transform 0.3s 0.3s, -webkit-transform 0.3s 0.3s;
+    }
