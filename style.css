@@ -134,6 +134,7 @@ section.blabla {
 }
 
 section.blabla header {
+    margin-top: 30px;
     margin-bottom: 4pc;
     text-align: center;
     color: #737373;
@@ -197,15 +198,14 @@ section.portada #scene .layer {
 }
 
 .carousel {
-    /*display: flex;
-    flex-wrap: wrap;*/
+    display: flex;
+    /*flex-wrap: wrap;*/
     margin-left: 20px;
     margin-right: 20px;
     margin-top: 70px;
 }
 
 .carousel article {
-    display: inline-block;
     text-align: center;
     margin-bottom: 40px;
     padding-bottom: 10px;
@@ -213,10 +213,10 @@ section.portada #scene .layer {
     background-color: #fff;
     transition: transform .25s ease-in-out;
     border: 5px solid #fff;
-    width: 32%;
     box-sizing: border-box;
     box-shadow: 0 1px 3px 1px rgba(0,0,0,.06);
     margin-left: 5px;
+    margin: 10px;
 }
 
 .carousel article:hover {
@@ -224,8 +224,11 @@ section.portada #scene .layer {
 }
 
 .carousel article img {
-    margin-bottom: 45px;
+    object-fit: cover;
+    max-width: 100%;
     width: 100%;
+    height: 400px;
+    margin-bottom: 45px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
