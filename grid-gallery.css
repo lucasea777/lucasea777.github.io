@@ -1,0 +1,29 @@
+body {
+}
+
+section.grid-gallery  {
+    margin: 0 auto;
+    width: 75%;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+
+section.grid-gallery .item {
+    width: 100%;
+}
+
+section.grid-gallery .t1 {
+    grid-column-start: 1;
+}
+
+section.grid-gallery .t2 {
+    grid-column-start: 2;
+}
+
+section.grid-gallery .l {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}

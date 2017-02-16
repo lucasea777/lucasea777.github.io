@@ -4,12 +4,14 @@
 <head>
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <title>Marilyn Producciones</title>
+    <meta charset="utf-8" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="social-button.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="parallax.js"></script>
+    <script src="navigo.min.js"></script>
     <link rel="icon" type="image/png" href="icon.png" />
 </head>
 
@@ -20,7 +22,7 @@
         <nav>
             <ul>
                 <li><a href="#" title="Home">Home</a></li>
-                <li><a href="#" title="Sobre Nosotros">Sobre Nosotros</a></li>
+                <li><a href="#sobremi" title="Sobre Mi">Sobre Mi</a></li>
                 <li><a href="#" title="Info">Info</a></li>
             </ul>
             <div class="logo"></div>
@@ -31,6 +33,7 @@
             </ul>
         </nav>
     </header>
+    <content>
     <section class="portada">
         <!--<video src="fondo_portada.mp4" autoplay loop></video>-->
         <div id="scene">
@@ -39,7 +42,6 @@
             </div>
         </div>
         <div class="content">
-            <!--<h1>Hochzeitsfotos und Hochzeitsfotografie</h1>-->
             <video class="anim-logo" src="logo.webm" autoplay></video>
             <img class="anim-logo" src="logo.png"></img>
         </div>
@@ -48,13 +50,15 @@
     <section class="blabla">
         <header>
             <h1>Excelencia en fotogfrafia</h1>
-            <p>Fotografia de Eventos, mi pasion y vida</p>
+            <p class="subtitle">Fotografia de Eventos, mi pasion y vida</p>
         </header>
+        <div class="justificado">
         <p>Que naval ni que naval, yo soy una fotografa de primerisimo nivel, mas barato y mucho pero mucho mejor, sino, mira lo que esta esta pagina papa, naval tiene algo parecido? na, porque es un gil, contratame ami, no seas gil vos tambien. </p>
         <p>Porque si contratas a otro, anda sabiendo, que al entrar aca te instalo un virus, donde te saco informacion sobre tu ubicacion, luego contrato a sicarios y ban, fuiste.</p>
+        </div>
     </section>
     <section class="carousel">
-        <article>
+        <article href="/nadia" data-navigo>
             <div class="crop">
             <img src="nadia.jpg">
             <!--<img src="https://s3-eu-central-1.amazonaws.com/karinaundagnes/wp-content/uploads/2017/01/Winterhochzeit-Standesamt-Dortmund-29.jpg">-->
@@ -82,13 +86,57 @@
             </div>
         </article>
     </section>
-    <section id="contact" class="blabla" style="width: 90%; margin-bottom: 20px">
+    <section class="carousel">
+        <article onclick="load('nadia')">
+            <div class="crop">
+            <img src="nadia.jpg">
+            <!--<img src="https://s3-eu-central-1.amazonaws.com/karinaundagnes/wp-content/uploads/2017/01/Winterhochzeit-Standesamt-Dortmund-29.jpg">-->
+            </div>
+            <div>
+                <span>10. December '16</span>
+                <h1>Nadia - Book 15 años</h1>
+                <p>Hermosa Nadia haciendo su book de 15 años! Ultimas sesiones del año!</p>
+            </div>
+        </article>
+        <article onclick="load('nadia')">
+            <img src="post.jpg">
+            <div>
+                <span>28. November '16</span>
+                <h1>Daniela & Andreas</h1>
+                <p> Air Wedding - Standesamtliche Trauung über den Wolken</p>
+            </div>
+        </article>
+        <article>
+            <img src="post.jpg">
+            <div>
+                <span>28. November '16</span>
+                <h1>Daniela & Andreas</h1>
+                <p> Air Wedding - Standesamtliche Trauung über den Wolken</p>
+            </div>
+        </article>
+    </section>
+    <section id="sobremi" class="blabla" style="width: 90%; margin-bottom: 50px">
+         <header>
+            <h1>Sobre mi</h1>
+            <p class="subtitle">Simplemente: Apazionada por la fotografia (y francia)</p>
+        </header>
+        <div class="img-div" style="
+    display: flex;
+">
+        <img src="karina.png" width="300" style="width: 100%;">
+        <div class="justificado" style="margin-left: 100px;display: flex;justify-content: center; flex-direction: column;">
+           <p> Me encanta mi trabajo como fotógrafo y para preparar otros con mis fotos una alegría. Lo más importante en mi vida es mi marido, nuestro perrito Bolek, mi familia y mis amigos. Mi pasión además de la fotografía está de viaje y el buceo. Una enorme debilidad que tengo por las cosas bellas y deliciosa comida. Mi lema - "Disfruta el momento"</p>
+        </div>
+        </div>
+    </section>
+    <section id="contact" class="blabla" style="width: 90%; margin-bottom: 20px; padding-top: 20px;">
         <header>
             <h1>Contactate con Marilyn!</h1>
-            <p>Sientete completa, llena de felicidad y gozo, al contrarme:</p>
+            <p class="subtitle">Sientete completa, llena de felicidad y gozo, al contrarme:</p>
         </header>
         <iframe style="margin-left: 50%;left: -250px;position: relative;" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpg%2FMarilyn-Producciones-Fotograf%C3%ADa-y-Video-854433377954665&tabs=messages&width=500&height=400&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="500" height="400" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
     </section>
+    </content>
     <footer>
         <div class="social-buttons">
             <a class="social-button facebook" href="https://www.facebook.com/pg/Marilyn-Producciones-Fotografía-y-Video-854433377954665">
@@ -105,6 +153,13 @@
 
 </html>
 <script>
+var router = new Navigo(undefined, true);
+router
+  .on('/nadia', function () {
+    $('content').load('album.html')
+  })
+  .resolve();
+
 var scene = $('#scene')[0];
 var parallax = new Parallax(scene);
 $(document).on('click', 'a', function(event){

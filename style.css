@@ -2,6 +2,17 @@
 @import 'menu-icon-toggle.css';
 .menu-icon-toggle {
   display: none;
+  user-select:none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+.justificado {
+  text-align: left;
 }
 
 body {
@@ -16,7 +27,7 @@ body {
 }
 
 h1 {
-    font-size: 3vw;
+    font-size: 1.5rem;
     letter-spacing: 2px;
     margin: 0;
     font-family: kepler-std;
@@ -26,14 +37,29 @@ h1 {
     display: block;
 }
 
+a {
+  text-decoration: none;
+}
+
 section.portada h1 {
     color: white;
     position: absolute;
     z-index: 2;
 }
 
+section.portada.album {
+    height: calc(100vh - 200px);
+    margin-bottom: 20px;
+}
+
 p {
     color: #737373;
+}
+
+.subtitle {
+    font-style: italic;
+    margin-top: 10px;
+    font-size: 15px;
 }
 
 video::-webkit-media-controls {
@@ -85,7 +111,6 @@ li {
 li > a {
     cursor: pointer;
     position: relative;
-    text-decoration: none;
     color: white;
     padding: 0 0 40px;
     margin: 0 0 0px;
@@ -136,6 +161,7 @@ section {
 }
 
 section.blabla {
+    padding-top: 20px;
     width: 730px;
     margin: auto;
     padding-left: 15px;
@@ -143,7 +169,7 @@ section.blabla {
 }
 
 section.blabla header {
-    margin-top: 30px;
+    margin-top: 10px;
     margin-bottom: 4pc;
     text-align: center;
     color: #737373;
@@ -220,6 +246,7 @@ section.portada #scene .layer {
 }
 
 .carousel article {
+    cursor: pointer;
     flex-basis: 0;
     flex-grow: 1;
     text-align: center;
@@ -302,6 +329,13 @@ footer {
 }
 
 @media screen and (max-width: 1000px) {
+    img.anim-logo {
+      display: initial;
+    }
+
+    video.anim-logo {
+      display: none;
+    }
     .carousel article {
         flex-basis: 47%;
     }
