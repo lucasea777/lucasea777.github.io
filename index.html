@@ -4,7 +4,7 @@
 <head>
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <title>Marilyn Producciones</title>
-    <meta charset="utf-8" /> 
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="social-button.css">
@@ -14,27 +14,6 @@
     <script src="navigo.min.js"></script>
     <script src="lazysizes.min.js" async=""></script>
     <link rel="icon" type="image/png" href="icon.png" />
-        <script>
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId: "260786051027362",
-            xfbml: true,
-            version: "v2.6"
-        });
-
-    };
-
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {
-            return;
-        }
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-    </script>
 </head>
 
 <body>
@@ -43,15 +22,16 @@
         <a href="#" class="menu-icon-toggle"><span></span></a>
         <nav>
             <ul>
-                <li><a href="#" title="Home">Home</a></li>
-                <li><a href="#sobremi" title="Sobre Mi">Sobre Mi</a></li>
-                <li><a href="#" title="Info">Info</a></li>
+                <li><a data-hash="/home" title="Home">Home</a></li>
+                <li><a data-hash="/home_sobremi" title="Sobre Mi">Sobre Mi</a></li>
+                <!--<li><a href="#" title="Info">Info</a></li>-->
             </ul>
             <div class="logo"></div>
             <ul>
-                <li><a href="#" title="Albunes">Albunes</a></li>
-                <li><a href="#contact" title="Contacto">Contacto</a></li>
-                <li><a href="#" title="...">...</a></li>
+                <!--<li><a href="#" title="Albunes">Albunes</a></li>-->
+                <li><a data-hash="/home_contact" title="Contacto">Contacto</a></li>
+                <li><a href="#" title="Facebook">Facebook</a></li>
+                <!--<li><a href="#" title="...">...</a></li>-->
             </ul>
         </nav>
     </header>
@@ -73,23 +53,73 @@
 
 </html>
 <script>
-var router = new Navigo(undefined, true);
+//var router = new Navigo(undefined, true);
+function updatePageLinks() {
+    $('[data-hash]').on('click', function(){(location.hash = $(this).data('hash'))})
+}
+updatePageLinks();
+var loaded = "";
+function load(a, selector) {
+    $('body').removeClass('open');
+    if (loaded == a) {
+        goto(selector !== undefined ? selector : 'body');
+        return
+    }
+    loaded = a;
+    $('content').load(a, function() {
+        //router.updatePageLinks();
+        updatePageLinks();
+        goto(selector !== undefined ? selector : 'body');
+    });
+}
+//load(location.hash.slice(1) + '.html')
 
-function load(a) {
-    $('content').load(a, function() {router.updatePageLinks()}); 
+var firstloc = true;
+function athome(){
+    if (firstloc) {
+        firstloc = false;
+        return false;
+    }
+    return ['home', 'sobremi', 'contact'].some((e) => location.hash.includes(e));
 }
 
-router
-  .on({
-    '/nadia': function () { load('album.html') },
-    '/': function () { load('home.html') }
-  })
-  .resolve();
+function goto(selector) {
+    $('html, body').animate({
+        scrollTop: $(selector).offset().top
+    }, 1000);
+}
+
+locations = {
+        '/': function() {
+            load('home.html')
+        },
+        '/home': function() {
+            load('home.html')
+        },
+        '/home_sobremi': function() {
+            load('home.html', '#sobremi')
+        },
+        '/home_contact': function() {
+            load('home.html', '#contact')
+        },
+        '/album': function() {
+            load('album.html')
+        }
+    }
+window.onhashchange = function(){
+    if (location.hash.slice(1) in locations)
+        locations[location.hash.slice(1)]()
+}
+window.onhashchange()
 
 $('.menu-icon-toggle').on('click', function(e) {
-  $('body').toggleClass('open');
+    $('body').toggleClass('open');
 
-  e.preventDefault();
+    e.preventDefault();
 });
+
+/*$(document).scroll(function() {
+    $('#menu').toggle($(this).scrollTop()>1000)
+ });​ */
 </script>
 </body>
