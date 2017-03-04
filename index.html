@@ -49,16 +49,21 @@
                 <i class="fa fa-envelope"></i>
             </a>-->
         </div>
+        <div class="fb-like" data-share="true" data-width="450" data-show-faces="true">
+        </div>
     </footer>
 
 </html>
 <script>
 //var router = new Navigo(undefined, true);
 function updatePageLinks() {
-    $('[data-hash]').on('click', function(){(location.hash = $(this).data('hash'))})
+    $('[data-hash]').on('click', function() {
+        (location.hash = $(this).data('hash'))
+    })
 }
 updatePageLinks();
 var loaded = "";
+
 function load(a, selector) {
     $('body').removeClass('open');
     if (loaded == a) {
@@ -75,7 +80,8 @@ function load(a, selector) {
 //load(location.hash.slice(1) + '.html')
 
 var firstloc = true;
-function athome(){
+
+function athome() {
     if (firstloc) {
         firstloc = false;
         return false;
@@ -90,26 +96,26 @@ function goto(selector) {
 }
 
 locations = {
-        '': function() {
-            load('home.html')
-        },
-        '/': function() {
-            load('home.html')
-        },
-        '/home': function() {
-            load('home.html')
-        },
-        '/home_sobremi': function() {
-            load('home.html', '#sobremi')
-        },
-        '/home_contact': function() {
-            load('home.html', '#contact')
-        },
-        '/album': function() {
-            load('album.html')
-        }
+    '': function() {
+        load('home.html')
+    },
+    '/': function() {
+        load('home.html')
+    },
+    '/home': function() {
+        load('home.html')
+    },
+    '/home_sobremi': function() {
+        load('home.html', '#sobremi')
+    },
+    '/home_contact': function() {
+        load('home.html', '#contact')
+    },
+    '/album': function() {
+        load('album.html')
     }
-window.onhashchange = function(){
+}
+window.onhashchange = function() {
     if (location.hash.slice(1) in locations)
         locations[location.hash.slice(1)]()
 }
