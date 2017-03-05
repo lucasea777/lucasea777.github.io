@@ -15,6 +15,5 @@ https://developers.facebook.com/docs/messenger-platform/plugin-reference/message
     http://codepen.io/TaniaLD/pen/oKxep
     http://codepen.io/aurer/pen/jEGbA
     http://codepen.io/jotavejv/pen/ljLnv
-- facebook y google analytics
-- logos kandinsky etc...
+- google analytics
 - tidy up

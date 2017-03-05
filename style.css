@@ -35,6 +35,19 @@ h1 {
     text-transform: uppercase;
     -webkit-font-smoothing: antialiased;
     display: block;
+    color: #737373;
+}
+
+h2 {
+    font-size: 1.0rem;
+    letter-spacing: 2px;
+    margin: 0;
+    font-family: kepler-std;
+    font-weight: 100;
+    text-transform: uppercase;
+    -webkit-font-smoothing: antialiased;
+    display: block;
+    color: #737373;
 }
 
 a {

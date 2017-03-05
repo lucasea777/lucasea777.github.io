@@ -22,7 +22,7 @@
         <a href="#" class="menu-icon-toggle"><span></span></a>
         <nav>
             <ul>
-                <li><a data-hash="/home" title="Home">Home</a></li>
+                <li><a data-hash="" title="Home">Home</a></li>
                 <li><a data-hash="/home_sobremi" title="Sobre Mi">Sobre Mi</a></li>
                 <!--<li><a href="#" title="Info">Info</a></li>-->
             </ul>
@@ -49,21 +49,16 @@
                 <i class="fa fa-envelope"></i>
             </a>-->
         </div>
-        <div class="fb-like" data-share="true" data-width="450" data-show-faces="true">
-        </div>
+
     </footer>
 
-</html>
 <script>
 //var router = new Navigo(undefined, true);
 function updatePageLinks() {
-    $('[data-hash]').on('click', function() {
-        (location.hash = $(this).data('hash'))
-    })
+    $('[data-hash]').on('click', function(){(location.hash = $(this).data('hash'))})
 }
 updatePageLinks();
 var loaded = "";
-
 function load(a, selector) {
     $('body').removeClass('open');
     if (loaded == a) {
@@ -80,8 +75,7 @@ function load(a, selector) {
 //load(location.hash.slice(1) + '.html')
 
 var firstloc = true;
-
-function athome() {
+function athome(){
     if (firstloc) {
         firstloc = false;
         return false;
@@ -96,26 +90,20 @@ function goto(selector) {
 }
 
 locations = {
-    '': function() {
-        load('home.html')
-    },
-    '/': function() {
-        load('home.html')
-    },
-    '/home': function() {
-        load('home.html')
-    },
-    '/home_sobremi': function() {
-        load('home.html', '#sobremi')
-    },
-    '/home_contact': function() {
-        load('home.html', '#contact')
-    },
-    '/album': function() {
-        load('album.html')
+        '': function() {
+            load('home.html')
+        },
+        '/home_sobremi': function() {
+            load('home.html', '#sobremi')
+        },
+        '/home_contact': function() {
+            load('home.html', '#contact')
+        },
+        '/nadia': function() {
+            load('nadia.html')
+        }
     }
-}
-window.onhashchange = function() {
+window.onhashchange = function(){
     if (location.hash.slice(1) in locations)
         locations[location.hash.slice(1)]()
 }
@@ -132,3 +120,14 @@ $('.menu-icon-toggle').on('click', function(e) {
  });​ */
 </script>
 </body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-93049227-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</html>

@@ -29,9 +29,9 @@
     </div>
 </section>
 <section class="carousel">
-    <article data-hash="/album">
+    <article data-hash="/nadia">
         <div class="crop">
-            <img src="nadia.jpg">
+            <img src="nadia/tapa.jpg">
             <!--<img src="https://s3-eu-central-1.amazonaws.com/karinaundagnes/wp-content/uploads/2017/01/Winterhochzeit-Standesamt-Dortmund-29.jpg">-->
         </div>
         <div>
@@ -58,9 +58,9 @@
     </article>
 </section>
 <section class="carousel">
-    <article data-hash="/album.html">
+    <article data-hash="/nadia.html">
         <div class="crop">
-            <img src="nadia.jpg">
+            <img src="nadia/tapa.jpg">
             <!--<img src="https://s3-eu-central-1.amazonaws.com/karinaundagnes/wp-content/uploads/2017/01/Winterhochzeit-Standesamt-Dortmund-29.jpg">-->
         </div>
         <div>
@@ -98,6 +98,35 @@
             <p>Me resulta muy interesante y entretenido todo lo audiovisual, me encanta sacar fotos y hacer videos. También disfruto el cine, ver películas es uno de mis hobbies favoritos. Otras de mis pasiones son los idiomas, francés e inglés son los que estudio hace varios años y sueño con viajar por varios países hablando distintas lenguas y conociendo su gente y cultura.</p>
         </div>
     </div>
+    <h2>Lugares donde estuide</h2>
+    <div class="estudios">
+        <img data-href="http://escuelalalumiere.com.ar" src="sobremi/lalumiere.png">
+        <img data-href="https://www.facebook.com/CEFmegusta/" src="sobremi/cef.jpg">
+        <img data-href="https://www.facebook.com/iffcordoba" src="sobremi/iff.png">
+        <img data-href="https://www.facebook.com/centrokandinsky/" src="sobremi/kandinsky.png">
+    <script>
+        $("#sobremi .estudios img").on('click', function(){
+            window.open($(this).data("href"));
+        })
+    </script>
+    <style>
+        #sobremi .estudios {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        #sobremi .estudios img {
+            cursor: pointer;
+            width: 164px;
+            object-fit: contain;
+        }
+        #sobremi h2 {
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+    </style>
+    </div>
 </section>
 <section id="contact" class="blabla" style="width: 90%; margin-bottom: 20px; padding-top: 20px;">
     <header>
@@ -108,6 +137,8 @@
         <div class="fb-page" data-href="https://www.facebook.com/Marilyn-Producciones-Fotograf&#xed;a-y-Video-854433377954665/" data-tabs="messages" data-small-header="false" data-width="500" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
     </div>
     </div>
+            <div class="fb-like" data-share="true" data-width="450" data-show-faces="true">
+        </div>
 </section>
 <script>
 var scene = $('#scene')[0];
@@ -118,25 +149,23 @@ try {
     delete FB;
     $('#facebook-jssdk, #fb-root, .fb-share-button').remove();
     } catch(a){}
-window.fbAsyncInit = function() {
+  window.fbAsyncInit = function() {
     FB.init({
-        appId: "260786051027362",
-        xfbml: true,
-        version: "v2.6"
+      appId      : '260786051027362',
+      xfbml      : true,
+      version    : 'v2.8'
     });
     FB.AppEvents.logPageView();
+    //FB.AppEvents.logEvent('battledAnOrc');
+  };
 
-};
-
-(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) {
-        return;
-    }
-    js = d.createElement(s);
-    js.id = id;
-    //js.src = "//connect.facebook.net/es_ES/sdk.js";
-    js.src = "fbsdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     //js.src = "//connect.facebook.net/en_US/sdk.js";
+     //js.src = "//connect.facebook.net/en_US/sdk/debug.js";
+     js.src = "//connect.facebook.net/es_ES/sdk/debug.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
 </script>
