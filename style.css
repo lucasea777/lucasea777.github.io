@@ -1,5 +1,18 @@
 /* menu-icon-toggle --> http://codepen.io/mauriceconchis/pen/yJLOgp */
 @import 'menu-icon-toggle.css';
+@font-face {
+    font-family: kepler;
+    src: url(fonts/kepler.ttf);
+}
+
+@font-face {
+    font-family: dubiel;
+    src: url(fonts/dubiel.ttf);
+}
+@font-face {
+    font-family: Abhaya;
+    src: url(fonts/AbhayaLibre-Regular.ttf);
+}
 .menu-icon-toggle {
   display: none;
   user-select:none;
@@ -16,8 +29,8 @@ html {
 }
 
 body {
-    font-family: kepler-std;
-    font-size: 19px;
+    font-family: Abhaya;;
+    font-size: 20px;
     margin: 0px;
     padding: 0px;
     background-color: rgba(0, 0, 0, .02);
@@ -125,7 +138,7 @@ nav ul:nth-child(2) {
 
 li {
     display: inline-block;
-    margin-bottom: 35px;
+    margin-bottom: 33px;
     /*flex-grow: 1;*/
     flex-grow: 0;
     margin-left: 40px;
@@ -158,7 +171,7 @@ li > a:before {
     background: white;
 }
 
-li > a:hover:before {
+li > a:hover:before, li > a.hover:before {
     transform: scaleX(1);
 }
 
@@ -166,7 +179,7 @@ section.portada {
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    margin-bottom: 5pc;
+    margin-bottom: 70px;
 }
 
 header.body_header {
@@ -194,7 +207,7 @@ section.blabla {
 
 section.blabla header {
     margin-top: 10px;
-    margin-bottom: 4pc;
+    margin-bottom: 50px;
     text-align: center;
     color: #737373;
 }
@@ -214,15 +227,46 @@ section.portada .fb-messengermessageus {
     z-index: 1000;
 }
 
-@media screen and (max-width: 900px) {
-  section.portada .fb-messengermessageus {
-    top: 25px;
-    left: 25px;
-    width: 0px !important;
-  }
+section#contact .fast-contact {
+    margin-top: 20px;
 }
 
+section#contact a.fast-contact.wapp {
+    margin-left: 30px;
+}
 
+@media screen and (max-width: 900px) {
+    section#contact .fast-contact {
+        margin-left: 0px;
+        display: block;
+    }
+}
+section.portada .fast-contact {
+    color: #0dc143;
+}
+
+.fast-contact {
+    cursor: default;
+}
+.fast-contact span {
+    vertical-align:middle;
+}
+.fast-contact img {
+    height: 40px;
+    vertical-align:middle;
+}
+section.portada .fast-contact  {
+    z-index: 99999;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+section.portada .fast-contact.msn  {
+    left: initial;
+    right: 20px;
+    display: none;
+}
 
 section.portada:after {
     content: "";
@@ -267,6 +311,20 @@ section.portada #scene .layer {
     height: 100%;
 }
 
+@media screen and (max-width: 900px) {
+  section.portada .fb-messengermessageus {
+    top: 25px;
+    left: 25px;
+    width: 0px !important;
+  }
+  section.portada .fast-contact span {
+    display: none;
+  }
+  section.portada .fast-contact.msn {
+    display: block;
+  }
+}
+
 section#sobremi {
   width: 90%; 
   margin-bottom: 50px
@@ -277,6 +335,8 @@ section#sobremi .img-div {
 section#sobremi .img-div img {
   width: 200px;
   height: 200px;
+  flex-grow: 0;
+  flex-basis: 200px;
 }
 section#sobremi .img-div .justificado {
   margin-left: 70px;
@@ -398,7 +458,7 @@ video.anim-logo {
 footer {
     background-color: #f3f3f3;
     display: block;
-    height: 300px;
+    height: 150px;
     margin-top: 30px;
 }
 
@@ -484,7 +544,9 @@ footer {
 
 @media screen and (max-width: 800px) {
     .anim-logo {
-        width: 75vw;
+        width: 94vw;
+        position: relative;
+        bottom: 13px;
     }
 }
 
@@ -541,4 +603,67 @@ footer {
 .arrows path.a3 { 
   animation-delay:0s;
   -webkit-animation-delay:0s; /* Safari 和 Chrome */
+}
+
+
+[data-tooltip] {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* Hide the tooltip content by default */
+[data-tooltip]:before,
+[data-tooltip]:after {
+  visibility: hidden;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Position tooltip above the element */
+[data-tooltip]:before {
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  margin-bottom: 5px;
+  margin-left: -80px;
+  padding: 7px;
+  width: 160px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #000;
+  background-color: hsla(0, 0%, 20%, 0.9);
+  color: #fff;
+  content: attr(data-tooltip);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+/* Triangle hack to make tooltip look like a speech bubble */
+[data-tooltip]:after {
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -5px;
+  width: 0;
+  border-top: 5px solid #000;
+  border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+}
+
+/* Show tooltip content on hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
 }

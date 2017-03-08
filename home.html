@@ -9,13 +9,20 @@
         <video class="anim-logo" src="logo.webm" autoplay></video>
         <img class="anim-logo" src="logo.png"></img>
     </div>
-    <div class="fb-messengermessageus" messenger_app_id="260786051027362" page_id="854433377954665" color="white" size="xlarge" style="z-index: 200">
-    </div>
+    <!--<div class="fb-messengermessageus" messenger_app_id="260786051027362" page_id="854433377954665" color="white" size="xlarge" style="z-index: 200">
+    </div>-->
+    <a href="https://m.me/854433377954665"></a>
     <svg class="arrows">
         <path class="a1" d="M0 0 L30 32 L60 0"></path>
         <path class="a2" d="M0 20 L30 52 L60 20"></path>
         <path class="a3" d="M0 40 L30 72 L60 40"></path>
     </svg>
+    <a class="fast-contact wapp">
+        <img src="wapp.png"> <span>+54 9 351 7041003</span>
+    </a>
+    <a class="fast-contact msn" href="intent://user/854433377954665/#Intent;scheme=fb-messenger;package=com.facebook.orca;end">
+        <img src="msn.svg">
+    </a>
 </section>
 <!-- This is just fillter - no need to mind it -->
 <section class="blabla">
@@ -69,7 +76,7 @@
             <p>Hermosa Nadia haciendo su book de 15 años! Ultimas sesiones del año!</p>
         </div>
     </article>
-    <article onclick="load('nadia')">
+    <article onclick="">
         <img src="post.jpg">
         <div>
             <span>28. November '16</span>
@@ -92,7 +99,7 @@
         <p class="subtitle">Simplemente: Apazionada por la fotografia (y francia)</p>
     </header>
     <div class="img-div">
-        <img src="https://scontent-eze1-1.xx.fbcdn.net/v/t1.0-9/13119100_10208997563846139_4702084552841248401_n.jpg?oh=b39a6778aa502821dbe9b391a8efe871&oe=590033B8">
+        <img src="sobremi/mary.jpg">
         <div class="justificado">
             <h1>Marilyn</h1>
             <p>Me resulta muy interesante y entretenido todo lo audiovisual, me encanta sacar fotos y hacer videos. También disfruto el cine, ver películas es uno de mis hobbies favoritos. Otras de mis pasiones son los idiomas, francés e inglés son los que estudio hace varios años y sueño con viajar por varios países hablando distintas lenguas y conociendo su gente y cultura.</p>
@@ -107,7 +114,7 @@
     <script>
         $("#sobremi .estudios img").on('click', function(){
             window.open($(this).data("href"));
-        })
+        });
     </script>
     <style>
         #sobremi .estudios {
@@ -136,9 +143,15 @@
     <div style="width: 100%; margin: 0 auto;">
         <div class="fb-page" data-href="https://www.facebook.com/Marilyn-Producciones-Fotograf&#xed;a-y-Video-854433377954665/" data-tabs="messages" data-small-header="false" data-width="500" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
     </div>
-    </div>
-            <div class="fb-like" data-share="true" data-width="450" data-show-faces="true">
-        </div>
+    <h2 style="margin: 30px 0 20px 0">Tambien puedes contactarme por e-mail o WhatsApp</h2>
+    <a class="fast-contact email">
+        <img src="gmail.png"> <span>r.marilyn.o@gmail.com</span>
+    </a>
+    <a class="fast-contact wapp">
+        <img src="wapp.png"> <span>+54 9 351 7041003</span>
+    </a>
+
+    <!--<div class="fb-like" data-share="true" data-width="450" data-show-faces="true">-->
 </section>
 <script>
 var scene = $('#scene')[0];
@@ -168,4 +181,21 @@ try {
      js.src = "//connect.facebook.net/es_ES/sdk/debug.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+</script>
+<script>
+    if (innerWidth < 1000) {
+            $(".fast-contact.wapp").attr('href',"intent://send/5493517041003#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end");
+            $(".fast-contact.email").attr('href',"mailto:r.marilyn.o@gmail.com?Subject=Hola%20Marilyn%20Producciones");
+        } else {
+            $(".fast-contact")
+                .attr("data-tooltip", "Click para copiar!")
+                .on("click", function(){
+                    copyToClipboard($(this).children("span")[0]);
+                    $(this).attr("data-tooltip", "Copiado gracias :D!")
+                    var that = this;
+                    setTimeout(function(){
+                        $(that).attr("data-tooltip", "Click para copiar numero!.")
+                    }, 2000)
+            });
+        }
 </script>

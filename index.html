@@ -6,10 +6,12 @@
     <title>Marilyn Producciones</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">-->
+    <link rel="stylesheet" type="text/css" href="lib/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="social-button.css">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
+    <script src="lib/jquery.min.js"></script>
     <script src="parallax.js"></script>
     <script src="navigo.min.js"></script>
     <script src="lazysizes.min.js" async=""></script>
@@ -22,7 +24,7 @@
         <a href="#" class="menu-icon-toggle"><span></span></a>
         <nav>
             <ul>
-                <li><a data-hash="" title="Home">Home</a></li>
+                <li><a data-hash="/" title="Inicio">Inicio</a></li>
                 <li><a data-hash="/home_sobremi" title="Sobre Mi">Sobre Mi</a></li>
                 <!--<li><a href="#" title="Info">Info</a></li>-->
             </ul>
@@ -38,24 +40,57 @@
     <content>
     </content>
     <footer>
-        <div class="social-buttons">
+        <!--<div class="social-buttons">
             <a class="social-button facebook" href="https://www.facebook.com/pg/Marilyn-Producciones-Fotografía-y-Video-854433377954665">
                 <i class="fa fa-facebook"></i>
             </a>
-            <!--<a class="social-button google" href="#">
+            <a class="social-button google" href="#">
                 <i class="fa fa-youtube"></i>
             </a>
-            <a class="social-button google" href="#">
+            <a class="social-button google" href="#">~~
                 <i class="fa fa-envelope"></i>
-            </a>-->
-        </div>
-
+            </a>
+        </div>-->
+    
     </footer>
 
 <script>
+function Utils() {
+
+}
+//http://stackoverflow.com/questions/487073/check-if-element-is-visible-after-scrolling
+Utils.prototype = {
+    constructor: Utils,
+    isElementInView: function (element, fullyInView) {
+        var pageTop = $(window).scrollTop();
+        var pageBottom = pageTop + $(window).height();
+        var elementTop = $(element).offset().top;
+        var elementBottom = elementTop + $(element).height();
+
+        if (fullyInView === true) {
+            return ((pageTop < elementTop) && (pageBottom > elementBottom));
+        } else {
+            return ((elementTop <= pageBottom) && (elementBottom >= pageTop));
+        }
+    }
+};
+
+var Utils = new Utils();
+</script>
+<script>
+function copyToClipboard(element) {
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val($(element).text()).select();
+    document.execCommand("copy");
+    $temp.remove();
+}
 //var router = new Navigo(undefined, true);
 function updatePageLinks() {
-    $('[data-hash]').on('click', function(){(location.hash = $(this).data('hash'))})
+    $('[data-hash]').on('click', function(){
+        location.hash = $(this).data('hash');
+        route();
+    })
 }
 updatePageLinks();
 var loaded = "";
@@ -73,41 +108,52 @@ function load(a, selector) {
     });
 }
 //load(location.hash.slice(1) + '.html')
-
-var firstloc = true;
 function athome(){
-    if (firstloc) {
-        firstloc = false;
-        return false;
-    }
-    return ['home', 'sobremi', 'contact'].some((e) => location.hash.includes(e));
+    return ['', 'home_sobremi', 'home_contact'].some((e) => location.hash.includes(e));
 }
 
+var reset_hash = false;
 function goto(selector) {
+    reset_hash = true;
     $('html, body').animate({
         scrollTop: $(selector).offset().top
     }, 1000);
 }
+$(document).scroll(function(){
+    if(Utils.isElementInView($('section.portada'), false))
+        location.hash = "/";
+    else if(Utils.isElementInView($('#sobremi'), false))
+        location.hash = '/home_sobremi';
+    else if(Utils.isElementInView($('#contact'), false))
+        location.hash = '/home_contact';
+    else 
+        location.hash = "/";
+})
 
 locations = {
         '': function() {
-            load('home.html')
+            /*load('home.html');*/
+        },
+        '/': function() {
+            load('home.html');
         },
         '/home_sobremi': function() {
-            load('home.html', '#sobremi')
+            load('home.html', '#sobremi');
         },
         '/home_contact': function() {
-            load('home.html', '#contact')
+            load('home.html', '#contact');
         },
         '/nadia': function() {
-            load('nadia.html')
+            load('nadia.html');
         }
     }
-window.onhashchange = function(){
+
+function route() {
+    //debugger;
     if (location.hash.slice(1) in locations)
         locations[location.hash.slice(1)]()
 }
-window.onhashchange()
+route()
 
 $('.menu-icon-toggle').on('click', function(e) {
     $('body').toggleClass('open');
