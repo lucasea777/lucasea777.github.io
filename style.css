@@ -333,10 +333,10 @@ section#sobremi .img-div {
   display: flex;
 }
 section#sobremi .img-div img {
-  width: 200px;
   height: 200px;
+  /*width: 200px;
   flex-grow: 0;
-  flex-basis: 200px;
+  flex-basis: 200px;*/
 }
 section#sobremi .img-div .justificado {
   margin-left: 70px;

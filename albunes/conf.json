@@ -1,0 +1,42 @@
+{
+    "cande": {
+        "portada": "DSC_08560000900003.jpg",
+        "tapa": "DSC_08540000100002.jpg",
+        "titulo": "Cande 15 años",
+        "fecha": "10. December '16",
+        "descripcion": "Hermosa Nadia haciendo su book de 15 años! Ultimas sesiones del año!",
+        "desarrollo": "<p>Me gusta tu mirada</p><p>me gustas tu</p><p>Me gusta como hablas</p><p> Me gustas tu</p>"
+    },
+    "erika_lucas": {
+        "portada": "14915186_1221704034560929_3863704350790083644_n00037.jpg",
+        "tapa": "14915186_1221704034560929_3863704350790083644_n00037.jpg",
+        "fecha": "10. December '16",
+        "titulo": "Erika y Lucas se aman como nunca antes!",
+        "descripcion": "Hermosa Nadia haciendo su book de 15 años! Ultimas sesiones del año!",
+        "desarrollo": "<p>Me gusta tu mirada</p><p>me gustas tu</p><p>Me gusta como hablas</p><p> Me gustas tu</p>"
+    },
+    "jaz": {
+        "portada": "DSC_98260002000001.jpg",
+        "tapa": "DSC_99160008200015.jpg",
+        "fecha": "10. December '16",
+        "titulo": "Jaz",
+        "descripcion": "Hermosa Nadia haciendo su book de 15 años! Ultimas sesiones del año!",
+        "desarrollo": "<p>Me gusta tu mirada</p><p>me gustas tu</p><p>Me gusta como hablas</p><p> Me gustas tu</p>"
+    },
+    "nadia": {
+        "portada": "portada.jpg",
+        "tapa": "tapa.jpg",
+        "fecha": "10. December '16",
+        "titulo": "Nadia 15 - añitos",
+        "descripcion": "Hermosa Nadia haciendo su book de 15 años! Ultimas sesiones del año!",
+        "desarrollo": "<p>Me gusta tu mirada</p><p>me gustas tu</p><p>Me gusta como hablas</p><p> Me gustas tu</p>"
+    },
+    "romina_lucas": {
+        "portada": "DSC_665700007.jpg",
+        "tapa": "DSC_663100002.jpg",
+        "fecha": "11. December '16",
+        "titulo": "Erika y Lucas - Amor incomparable",
+        "descripcion": "Romina y Lucas acarameladisimosss!",
+        "desarrollo": "<p>Me gusta tu mirada</p><p>me gustas tu</p><p>Me gusta como hablas</p><p> Me gustas tu</p>"
+    }
+}

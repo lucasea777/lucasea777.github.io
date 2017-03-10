@@ -1,0 +1,54 @@
+<link rel="stylesheet" type="text/css" href="grid-gallery.css">
+<section class="portada album">
+    <!--<video src="fondo_portada.mp4" autoplay loop></video>-->
+    <div id="scene">
+        <div class="layer" data-depth="0.20">
+            <img id="fotoportada">
+        </div>
+    </div>
+</section>
+<section class="blabla">
+    <header>
+        <p id="fecha" class="subtitle" style="margin-bottom: 0"></p>
+        <h1 id="titulo"></h1>
+        <p id="descripcion" class="subtitle"></p>
+    </header>
+    <div id="desarrollo" class="justificado">
+       
+    </div>
+</section>
+<section class=grid-gallery id=galeria>
+    <!--<img class="item t1 lazyload" data-src="albunes/nadia/low/t1.jpg">
+        <img class="item t2 lazyload" data-src="albunes/nadia/low/t2.jpg">
+        <img class="item l lazyload" data-src="albunes/nadia/low/l1.jpg">-->
+</section>
+<script>
+    var nombre = location.hash.split(":")[1];
+    $.getJSON(`albunes/conf.json`, function(data) {
+        $("#fotoportada").attr("src", `albunes/${nombre}/low/${data[nombre].portada}`);
+        $("#fecha").text(data[nombre].fecha)
+        $("#titulo").text(data[nombre].titulo)
+        $("#descripcion").text(data[nombre].descripcion)
+        $("#desarrollo").html(data[nombre].desarrollo)
+    });
+    $.getJSON(`albunes/${nombre}/list_low.json`, function(data) {
+        var added = [];
+        var left = true;
+        var stack_landscape = [];
+        data.forEach(function(with_orientation){
+            var path = with_orientation.pa;
+            if (with_orientation.or == 'p') {
+                t1_t2_l = left ? 't1' : 't2';
+                left = !left;
+                added.push(`<img class='item ${t1_t2_l} lazyload' data-src='${path}'>`);
+            } else {
+                if (left) {
+                    added.push(`<img class='item l lazyload' data-src='${path}'>`);
+                } else {
+                    stack_landscape.push(`<img class='item l lazyload' data-src='${path}'>`);
+                }
+            }
+        });
+        $("#galeria").html(added.concat(stack_landscape).join(""))
+    });
+</script>

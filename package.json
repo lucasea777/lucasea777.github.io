@@ -1,0 +1,6 @@
+{
+    "name": "site",
+    "config": { "port": "8080" },
+    "scripts": { "lsphotos": "node lsphotos.js" },
+    "dependencies": {"image-size": ">=0.5.1"}
+}

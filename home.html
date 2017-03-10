@@ -36,54 +36,24 @@
     </div>
 </section>
 <section class="carousel">
-    <article data-hash="/nadia">
+    <!--<article data-hash="/album:cande">
         <div class="crop">
             <img src="nadia/tapa.jpg">
-            <!--<img src="https://s3-eu-central-1.amazonaws.com/karinaundagnes/wp-content/uploads/2017/01/Winterhochzeit-Standesamt-Dortmund-29.jpg">-->
         </div>
         <div>
             <span>10. December '16</span>
             <h1>Nadia - Book 15 años</h1>
             <p>Hermosa Nadia haciendo su book de 15 años! Ultimas sesiones del año!</p>
         </div>
-    </article>
-    <article>
-        <img src="post.jpg">
-        <div>
-            <span>28. November '16</span>
-            <h1>Daniela & Andreas</h1>
-            <p> Air Wedding - Standesamtliche Trauung über den Wolken</p>
-        </div>
-    </article>
-    <article>
-        <img src="post.jpg">
-        <div>
-            <span>28. November '16</span>
-            <h1>Daniela & Andreas</h1>
-            <p> Air Wedding - Standesamtliche Trauung über den Wolken</p>
-        </div>
+    </article>-->
+    <article data-album="cande" data-hash="/album:cande"></article>
+    <article data-album="nadia" data-hash="/album:nadia"></article>
+    <article data-album="erika_lucas" data-hash="/album:erika_lucas"></article>
     </article>
 </section>
 <section class="carousel">
-    <article data-hash="/nadia.html">
-        <div class="crop">
-            <img src="nadia/tapa.jpg">
-            <!--<img src="https://s3-eu-central-1.amazonaws.com/karinaundagnes/wp-content/uploads/2017/01/Winterhochzeit-Standesamt-Dortmund-29.jpg">-->
-        </div>
-        <div>
-            <span>10. December '16</span>
-            <h1>Nadia - Book 15 años</h1>
-            <p>Hermosa Nadia haciendo su book de 15 años! Ultimas sesiones del año!</p>
-        </div>
-    </article>
-    <article onclick="">
-        <img src="post.jpg">
-        <div>
-            <span>28. November '16</span>
-            <h1>Daniela & Andreas</h1>
-            <p> Air Wedding - Standesamtliche Trauung über den Wolken</p>
-        </div>
-    </article>
+    <article data-album="jaz" data-hash="/album:jaz"></article>
+    <article data-album="romina_lucas" data-hash="/album:romina_lucas"></article>
     <article>
         <img src="post.jpg">
         <div>
@@ -198,4 +168,20 @@ try {
                     }, 2000)
             });
         }
+</script>
+<script>
+    $.getJSON(`albunes/conf.json`, function(data) {
+        [].forEach.call($("[data-album]"), function(elem) {
+            var nombre = elem.getAttribute('data-album');
+            var album_data = data[nombre];
+            $(elem).append($("<div/>", {class: "crop"})
+                .append($("<img/>", {src: `albunes/${nombre}/low/${album_data.tapa}`}))
+            )
+            .append($("<div/>")
+                .append($("<span/>").text(album_data.fecha))
+                .append($("<h1/>").text(album_data.titulo))
+                .append($("<p/>").text(album_data.descripcion))
+            )
+        })
+    });
 </script>

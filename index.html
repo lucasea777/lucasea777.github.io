@@ -13,7 +13,6 @@
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
     <script src="lib/jquery.min.js"></script>
     <script src="parallax.js"></script>
-    <script src="navigo.min.js"></script>
     <script src="lazysizes.min.js" async=""></script>
     <link rel="icon" type="image/png" href="icon.png" />
 </head>
@@ -109,7 +108,8 @@ function load(a, selector) {
 }
 //load(location.hash.slice(1) + '.html')
 function athome(){
-    return ['', 'home_sobremi', 'home_contact'].some((e) => location.hash.includes(e));
+    //return ['/', 'sobremi', 'contact'].some((e) => location.hash.includes(e));
+    return !location.hash.includes('album')
 }
 
 var reset_hash = false;
@@ -120,6 +120,8 @@ function goto(selector) {
     }, 1000);
 }
 $(document).scroll(function(){
+    if (!athome())
+        return
     if(Utils.isElementInView($('section.portada'), false))
         location.hash = "/";
     else if(Utils.isElementInView($('#sobremi'), false))
@@ -132,7 +134,7 @@ $(document).scroll(function(){
 
 locations = {
         '': function() {
-            /*load('home.html');*/
+            load('home.html');
         },
         '/': function() {
             load('home.html');
@@ -142,9 +144,6 @@ locations = {
         },
         '/home_contact': function() {
             load('home.html', '#contact');
-        },
-        '/nadia': function() {
-            load('nadia.html');
         }
     }
 
@@ -152,6 +151,8 @@ function route() {
     //debugger;
     if (location.hash.slice(1) in locations)
         locations[location.hash.slice(1)]()
+    else if(location.hash.slice(1).startsWith('/album:'))
+        load('album.html')
 }
 route()
 
