@@ -12,14 +12,17 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
     <script src="lib/jquery.min.js"></script>
+    <script src="lib/jquery-ui.min.js"></script>
     <script src="parallax.js"></script>
     <script src="lazysizes.min.js" async=""></script>
     <link rel="icon" type="image/png" href="icon.png" />
 </head>
 
 <body>
-    <div class="menu-shadow"></div>
     <header class="body_header">
+        <div class="menu-shadow-crop">
+            <div class="menu-shadow"></div>
+        </div>
         <a href="#" class="menu-icon-toggle"><span></span></a>
         <nav>
             <ul>
@@ -76,6 +79,7 @@ Utils.prototype = {
 
 var Utils = new Utils();
 </script>
+<script src="circleanim.js"></script>
 <script>
 function copyToClipboard(element) {
     var $temp = $("<input>");
@@ -95,6 +99,7 @@ updatePageLinks();
 var loaded = "";
 function load(a, selector) {
     $('body').removeClass('open');
+    close_circle();
     if (loaded == a) {
         goto(selector !== undefined ? selector : 'body');
         return
@@ -124,6 +129,10 @@ function goto(selector) {
     }, 1000);
 }
 $(document).scroll(function(){
+    if ($("body").hasClass('open')) {
+        $("body").removeClass('open');
+        close_circle();
+    }
     if (!athome())
         return
     if(Utils.isElementInView($('section.portada'), false))

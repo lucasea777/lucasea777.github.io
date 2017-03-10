@@ -320,8 +320,25 @@ section.portada #scene .layer {
   section.portada .fast-contact span {
     display: none;
   }
+  section.portada .fast-contact {
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.41, 1.61);
+    bottom: 20px;
+  }
+  section.portada .fast-contact.wapp {
+    left: 20px;
+  }
   section.portada .fast-contact.msn {
+    right: 20px;
     display: block;
+  }
+  .open section.portada .fast-contact {
+    bottom: -50px; 
+  }
+  .open section.portada .fast-contact.msn {
+    right: -50px;
+  }
+  .open section.portada .fast-contact.wapp {
+    left: -50px;
   }
 }
 
@@ -485,12 +502,23 @@ footer {
         padding-bottom: 25px;
     }
     nav {
+        display: flex;
         flex-direction: column;
-        display: none;
         height: 100%;
     }
-    .open nav {
-      display: flex;
+    nav li {
+        right: -500px;
+        position: relative;
+    }
+    .open nav li {
+        right: 0;
+    }
+
+    nav li:nth-child(1) {
+        transition: all 0.7s cubic-bezier(0.57, 1.35, 0.43, 1.26);
+    }
+    nav li:nth-child(2) {
+        transition: all 0.8s cubic-bezier(0.57, 1.35, 0.43, 1.26);
     }
     nav ul {
         border-bottom: none;
@@ -524,14 +552,14 @@ footer {
         display: none;
     }
     .menu-shadow {
-        display: none;
-        z-index: 300;
+        /*z-index: 300;
         background: rgba(162, 87, 44, 0.82);
         position: absolute;
+        display: none;
         top: 0;
         left: 0;
         right: 0;
-        bottom: 0;
+        bottom: 0;*/
     }
     .open .menu-shadow {
       display: initial;

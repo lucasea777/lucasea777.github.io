@@ -1,0 +1,28 @@
+{
+  "name": "marilynp",
+  "description": "marilynp",
+  "main": "index.html",
+  "authors": [
+    "Luks777 <lucas.e.a777@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "lucasea777.github.io/marilynp",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "package.json",
+    "src",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1"
+  },
+  "install" : {
+        "path"  : {
+            "js": "_js/",
+            "css": "_css/"
+        }
+  }
+}
