@@ -250,6 +250,7 @@ section.portada .fast-contact {
 }
 .fast-contact span {
     vertical-align:middle;
+    font-family: Times New Roman;
 }
 .fast-contact img {
     height: 40px;
@@ -383,6 +384,7 @@ section#sobremi .img-div .justificado {
     /* top: 25%; */
     /* left: calc(50% - 46.875vw / 2); */
     width: 46.875vw;
+    width: 65.875vw;
     /* height: auto; */
     /* margin: 0; */
     z-index: 4;

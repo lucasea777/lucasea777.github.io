@@ -34,7 +34,7 @@
             <ul>
                 <!--<li><a href="#" title="Albunes">Albunes</a></li>-->
                 <li><a data-hash="/home_contact" title="Contacto">Contacto</a></li>
-                <li><a href="#" title="Facebook">Facebook</a></li>
+                <li><a href="https://www.facebook.com/Marilyn-Producciones-Fotografía-y-Video-854433377954665/" title="Facebook">Facebook</a></li>
                 <!--<li><a href="#" title="...">...</a></li>-->
             </ul>
         </nav>
@@ -131,14 +131,32 @@ function goto(selector) {
     }, 1000);
 }
 var skip_onpushstate = false;
-$(document).scroll(function(){
+var previousScroll = 0;
+$(document).scroll(function() {
     if ($("body").hasClass('open')) {
         $("body").removeClass('open');
         close_circle();
     }
-    if (!athome())
+    if (innerWidth > 1000) {
+        var currentScroll = $(this).scrollTop();
+        if (currentScroll < previousScroll && currentScroll > innerHeight) {
+            $(".body_header").css({
+                paddingTop: 5,
+                position: "fixed",
+                background: "linear-gradient(rgba(0, 0, 0, 0.62), transparent)"
+            });
+        } else {
+            $(".body_header").css({
+                paddingTop: 25,
+                position: "absolute",
+                background: "transparent"
+            });
+        }
+        previousScroll = currentScroll;
+    }
+    /*if (!athome())
         return
-    /*var before = location.hash;
+    var before = location.hash;
     var tochange;
     if(Utils.isElementInView($('section.portada'), false))
         tochange = "/";
@@ -207,6 +225,5 @@ $('.menu-icon-toggle').on('click', function(e) {
         }
         route({donotscroll: true});
     };
-
 </script>
 </html>
