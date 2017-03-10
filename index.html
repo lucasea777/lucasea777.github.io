@@ -101,7 +101,9 @@ function load(a, selector) {
     $('body').removeClass('open');
     close_circle();
     if (loaded == a) {
-        goto(selector !== undefined ? selector : 'body');
+        if (selector !== undefined)
+            goto(selector);
+        //goto(selector !== undefined ? selector : 'body');
         return
     }
     loaded = a;
@@ -128,6 +130,7 @@ function goto(selector) {
         scrollTop: $(selector).offset().top
     }, 1000);
 }
+var skip_onpushstate = false;
 $(document).scroll(function(){
     if ($("body").hasClass('open')) {
         $("body").removeClass('open');
@@ -135,14 +138,19 @@ $(document).scroll(function(){
     }
     if (!athome())
         return
+    /*var before = location.hash;
+    var tochange;
     if(Utils.isElementInView($('section.portada'), false))
-        location.hash = "/";
+        tochange = "/";
     else if(Utils.isElementInView($('#sobremi'), false))
-        location.hash = '/home_sobremi';
+        tochange = '/home_sobremi';
     else if(Utils.isElementInView($('#contact'), false))
-        location.hash = '/home_contact';
+        tochange = '/home_contact';
     else 
-        location.hash = "/";
+        tochange = "/";
+    if (tochange != before)
+        skip_onpushstate = true;
+    location.hash = tochange;*/
 })
 
 locations = {
@@ -188,6 +196,17 @@ $('.menu-icon-toggle').on('click', function(e) {
 
   ga('create', 'UA-93049227-1', 'auto');
   ga('send', 'pageview');
+
+</script>
+<script>
+    window.onpopstate = function(event) {
+        //alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
+        if (skip_onpushstate) {
+            skip_onpushstate = false;
+            return;
+        }
+        route({donotscroll: true});
+    };
 
 </script>
 </html>

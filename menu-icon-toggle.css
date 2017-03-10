@@ -54,7 +54,7 @@
     }
     .open .menu-icon-toggle::before,
     .open .menu-icon-toggle::after {
-        background-color: #6191d1;
+        /*background-color: #6191d1;*/
     }
     .open .menu-icon-toggle::before {
         top: calc(50% - 1px);

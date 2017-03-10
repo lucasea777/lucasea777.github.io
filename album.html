@@ -31,24 +31,27 @@
         $("#descripcion").text(data[nombre].descripcion)
         $("#desarrollo").html(data[nombre].desarrollo)
     });
-    $.getJSON(`albunes/${nombre}/list_low.json`, function(data) {
-        var added = [];
-        var left = true;
-        var stack_landscape = [];
-        data.forEach(function(with_orientation){
-            var path = with_orientation.pa;
-            if (with_orientation.or == 'p') {
-                t1_t2_l = left ? 't1' : 't2';
-                left = !left;
-                added.push(`<img class='item ${t1_t2_l} lazyload' data-src='${path}'>`);
-            } else {
-                if (left) {
-                    added.push(`<img class='item l lazyload' data-src='${path}'>`);
+    //$.getJSON(`albunes/${nombre}/list_low.json`, function(data) {
+    fetch(new Request(`albunes/${nombre}/list_low.json`))
+        .then(r => r.json())
+        .then(function(data) {
+            var added = [];
+            var left = true;
+            var stack_landscape = [];
+            data.forEach(function(with_orientation){
+                var path = with_orientation.pa;
+                if (with_orientation.or == 'p') {
+                    t1_t2_l = left ? 't1' : 't2';
+                    left = !left;
+                    added.push(`<img class='item ${t1_t2_l} lazyload' data-src='${path}'>`);
                 } else {
-                    stack_landscape.push(`<img class='item l lazyload' data-src='${path}'>`);
+                    if (left) {
+                        added.push(`<img class='item l lazyload' data-src='${path}'>`);
+                    } else {
+                        stack_landscape.push(`<img class='item l lazyload' data-src='${path}'>`);
+                    }
                 }
-            }
+            });
+            $("#galeria").html(added.concat(stack_landscape).join(""))
         });
-        $("#galeria").html(added.concat(stack_landscape).join(""))
-    });
 </script>
