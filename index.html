@@ -246,9 +246,14 @@ $('.menu-icon-toggle').on('click', function(e) {
 
   if (['localhost', '192.168'].some((e) => location.hostname.includes(e)) ||
     location.search.includes('testing'))
-    ga('create', 'UA-93049227-1', 'auto', 'testing');
+    //ga('create', 'UA-93049227-1', 'auto', 'testing');
+    ga('create', 'UA-93049227-1', 'auto');
   else
-    ga('create', 'UA-93049227-1', 'auto', 'realdeal');
+    ga('create', 'UA-93049227-1', 'auto');
+
+    ga(function(tracker) {
+      console.log("Trackers loaded: " + tracker.get('clientId'));
+    });
 
    //ga('set', 'sendHitTask', null);
    ga('send', 'pageview')
@@ -273,7 +278,8 @@ $('.menu-icon-toggle').on('click', function(e) {
                   hitType: 'event',
                   eventCategory: 'Videos',
                   eventAction: 'play',
-                  eventLabel: title
+                  eventLabel: title,
+                  "hitCallback": function(e) {console.log("hit!", e)}
                 })
             });
         });
