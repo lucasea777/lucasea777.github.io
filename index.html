@@ -228,14 +228,19 @@
                     setTimeout(function() {
                         $(that).attr("data-tooltip", "Click para copiar numero!.")
                     }, 2000);
-                    var type = $(this).attr('class').split(' ').filter(e => ['wapp', 'msn', 'email'].includes(e));
-                    ga('send', {
-                        hitType: 'event',
-                        eventCategory: `fast-contact ${type}`,
-                        eventAction: 'click'
-                    });
                 });
         }
+        $(".fast-contact").click(function() {
+            var type = $(this).attr('class').split(' ').filter(e => ['wapp', 'msn', 'email'].includes(e));
+            ga('send', {
+                hitType: 'event',
+                eventCategory: `fast-contact ${type}`,
+                eventAction: 'click',
+                hitCallback: function(e) {
+                    console.log(`Hit!! fast-contact ${type}`)
+                }
+            });
+        });
         </script>
         <script>
         $.getJSON(`albunes/conf.json`, function(data) {
@@ -474,7 +479,10 @@ $("#facebooklink").click(function() {
     ga('send', {
         hitType: 'event',
         eventCategory: `fast-contact facebook`,
-        eventAction: 'click'
+        eventAction: 'click',
+        hitCallback: function(e) {
+            console.log(`Hit!! fast-contact facebook`)
+        }
     });
 });
 </script>
@@ -488,11 +496,11 @@ function monitorvimeo(e) {
         player.getVideoTitle().then(function(title) {
             ga('send', {
                 hitType: 'event',
-                eventCategory: 'Videos',
+                eventCategory: `Video - ${title}`,
                 eventAction: 'play',
-                eventLabel: title,
-                "hitCallback": function(e) {
-                    console.log("hit!", e)
+                /*eventLabel: title,*/
+                hitCallback: function(e) {
+                    console.log(`Hit!! Video - ${title}`)
                 }
             })
         });
@@ -506,7 +514,10 @@ window.onpopstate = function(event) {
     }
     ga('send', {
         hitType: 'pageview',
-        location: location.href
+        location: location.href,
+        hitCallback: function(e) {
+            console.log(`Hit!! pageview - ${location.href}`)
+        }
     });
     route();
     for (var p of players) {
