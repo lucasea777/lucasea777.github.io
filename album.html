@@ -37,10 +37,10 @@
     if (innerWidth > 1000) {
         $("#galeria").removeClass().addClass("old-school-gallery");
     }
-    ga('send', {
+    /*ga('send', {
       hitType: 'pageview',
       page: location.hash
-    });
+    });*/
     var nombre = location.hash.split(":")[1];
     $.getJSON(`albunes/conf.json`, function(data) {
         $("#fotoportada").attr("src", `albunes/${nombre}/low/${data[nombre].portada}`);
