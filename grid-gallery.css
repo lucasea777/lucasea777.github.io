@@ -27,3 +27,32 @@ section.grid-gallery .l {
     grid-column-start: 1;
     grid-column-end: 3;
 }
+
+section.old-school-gallery {
+    font-size: 0;
+    margin: 0 auto;
+    width: 75%;
+    margin-top: 30px;
+}
+
+section.old-school-gallery > * {
+    box-sizing: border-box;
+}
+
+section.old-school-gallery img {
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
+section.old-school-gallery .t1 {
+  padding-right: 5px;
+  display: inline-block;
+}
+
+section.old-school-gallery .t2 {
+  padding-left: 5px;
+}
+
+section.old-school-gallery .t1 , section.old-school-gallery .t2 { 
+  width: 50%;
+}

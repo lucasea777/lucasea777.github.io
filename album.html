@@ -14,15 +14,33 @@
         <p id="descripcion" class="subtitle"></p>
     </header>
     <div id="desarrollo" class="justificado">
-       
     </div>
+    <div class="ornaments" style="position: relative; left: -168px; top: 173px; height: 0; width: 0;"><img src="side.svg" style="transform: rotate(-90deg);"></div>
+    <div class="ornaments" style="position: relative; left: 595px;top: 173px;height: 0;width: 0;"><img src="side.svg" style="transform: rotate(90deg);"></div>
+    <div id="video"></div>
 </section>
 <section class=grid-gallery id=galeria>
     <!--<img class="item t1 lazyload" data-src="albunes/nadia/low/t1.jpg">
         <img class="item t2 lazyload" data-src="albunes/nadia/low/t2.jpg">
         <img class="item l lazyload" data-src="albunes/nadia/low/l1.jpg">-->
 </section>
+<!--<section class="old-school-gallery">
+    <img src="albunes/nadia/low/l1.jpg" class="l"/>
+    <img src="albunes/nadia/low/t1.jpg" class="t1">
+    <img src="albunes/nadia/low/t2.jpg" class="t2">
+    <img src="albunes/nadia/low/l1.jpg" class="l"/>
+    <img src="albunes/nadia/low/l1.jpg" class="l"/>
+    <img src="albunes/nadia/low/t1.jpg" class="t1">
+    <img src="albunes/nadia/low/t2.jpg" class="t2">
+</section>-->
 <script>
+    if (innerWidth > 1000) {
+        $("#galeria").removeClass().addClass("old-school-gallery");
+    }
+    ga('send', {
+      hitType: 'pageview',
+      page: location.hash
+    });
     var nombre = location.hash.split(":")[1];
     $.getJSON(`albunes/conf.json`, function(data) {
         $("#fotoportada").attr("src", `albunes/${nombre}/low/${data[nombre].portada}`);
@@ -30,6 +48,12 @@
         $("#titulo").text(data[nombre].titulo)
         $("#descripcion").text(data[nombre].descripcion)
         $("#desarrollo").html(data[nombre].desarrollo)
+        var v = data[nombre].video;
+        if (v !== undefined)
+            //if (data[nombre].video.includes("vimeo"))
+            $("#video").html(`<iframe src="${v}" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>`)
+        else
+            $("#video, .ornaments").remove()
     });
     //$.getJSON(`albunes/${nombre}/list_low.json`, function(data) {
     fetch(new Request(`albunes/${nombre}/list_low.json`))

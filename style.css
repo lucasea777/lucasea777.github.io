@@ -211,6 +211,20 @@ section.blabla header {
     text-align: center;
     color: #737373;
 }
+section.blabla iframe {
+    margin-top: 25px;
+}
+
+@media screen and (max-width: 1000px) {
+
+    .ornaments {
+        display: none
+    }
+    section.blabla iframe {
+        width: 100%;
+    }
+
+}
 
 section.blabla header:after {
     width: 5pc;
@@ -235,7 +249,7 @@ section#contact a.fast-contact.wapp {
     margin-left: 30px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
     section#contact .fast-contact {
         margin-left: 0px;
         display: block;

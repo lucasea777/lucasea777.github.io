@@ -2,6 +2,13 @@
 <html>
 
 <head>
+    <!-- Google Tag Manager -->
+    <!--<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KHRNF3Z');</script>-->
+    <!-- End Google Tag Manager -->
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <title>Marilyn Producciones</title>
     <meta charset="utf-8" />
@@ -15,10 +22,15 @@
     <script src="lib/jquery-ui.min.js"></script>
     <script src="parallax.js"></script>
     <script src="lazysizes.min.js" async=""></script>
+    <script src="https://player.vimeo.com/api/player.js"></script>
     <link rel="icon" type="image/png" href="icon.png" />
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <!--<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KHRNF3Z"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>-->
+    <!-- End Google Tag Manager (noscript) -->
     <header class="body_header">
         <div class="menu-shadow-crop">
             <div class="menu-shadow"></div>
@@ -26,7 +38,7 @@
         <a href="#" class="menu-icon-toggle"><span></span></a>
         <nav>
             <ul>
-                <li><a data-hash="/" title="Inicio">Inicio</a></li>
+                <li><a data-hash="/" onclick="goto('body')" title="Inicio">Inicio</a></li>
                 <li><a data-hash="/home_sobremi" title="Sobre Mi">Sobre Mi</a></li>
                 <!--<li><a href="#" title="Info">Info</a></li>-->
             </ul>
@@ -34,12 +46,14 @@
             <ul>
                 <!--<li><a href="#" title="Albunes">Albunes</a></li>-->
                 <li><a data-hash="/home_contact" title="Contacto">Contacto</a></li>
-                <li><a href="https://www.facebook.com/Marilyn-Producciones-Fotografía-y-Video-854433377954665/" title="Facebook">Facebook</a></li>
+                <li><a id=facebooklink href="https://www.facebook.com/Marilyn-Producciones-Fotografía-y-Video-854433377954665/" title="Facebook">Facebook</a></li>
                 <!--<li><a href="#" title="...">...</a></li>-->
             </ul>
         </nav>
     </header>
-    <content>
+    <content id="greathome">
+    </content>
+    <content id="greatalbum">
     </content>
     <footer>
         <!--<div class="social-buttons">
@@ -97,6 +111,7 @@ function updatePageLinks() {
 }
 updatePageLinks();
 var loaded = "";
+var home_loaded = false;
 function load(a, selector) {
     $('body').removeClass('open');
     close_circle();
@@ -107,7 +122,24 @@ function load(a, selector) {
         return
     }
     loaded = a;
-    $('content').load(a, function() {
+    if (a == "home.html") {
+        $("#greathome").show();
+        $('#greatalbum').html("");
+        //$(".homevimeo").attr("src", $(".homevimeo").attr("src"));
+        if (home_loaded)
+            return
+    } else {
+        $("#greathome").hide();
+        $('#greatalbum').show();
+    }
+    var target;
+    if (a == "home.html") {
+        home_loaded = true;
+        target = $('#greathome')
+    } else {
+        target = $('#greatalbum')
+    }
+    target.load(a, function() {
         //router.updatePageLinks();
         updatePageLinks();
         setTimeout(function() {
@@ -212,18 +244,54 @@ $('.menu-icon-toggle').on('click', function(e) {
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-93049227-1', 'auto');
-  ga('send', 'pageview');
+  if (['localhost', '192.168'].some((e) => location.hostname.includes(e)) ||
+    location.search.includes('testing'))
+    ga('create', 'UA-93049227-1', 'auto', 'testing');
+  else
+    ga('create', 'UA-93049227-1', 'auto', 'realdeal');
+
+   //ga('set', 'sendHitTask', null);
+   ga('send', 'pageview')
+
+   $("#facebooklink").click(function(){
+        ga('send', {
+            hitType: 'event',
+            eventCategory: `fast-contact facebook`,
+            eventAction: 'click'
+        });
+   });
 
 </script>
 <script>
+    var players = [];
+    function monitorvimeo(e) {
+        var player = new Vimeo.Player(e);
+        players.push(player);
+        player.on('play', function() {
+            player.getVideoTitle().then(function(title) {
+                ga('send', {
+                  hitType: 'event',
+                  eventCategory: 'Videos',
+                  eventAction: 'play',
+                  eventLabel: title
+                })
+            });
+        });
+    }
     window.onpopstate = function(event) {
         //alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
         if (skip_onpushstate) {
             skip_onpushstate = false;
             return;
         }
-        route({donotscroll: true});
+        ga('send', {
+            hitType: 'pageview',
+            location: location.href
+        });
+        route();
+        for (var p of players) {
+            try {p.pause()} catch(err) {}
+        }
     };
 </script>
 </html>

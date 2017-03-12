@@ -34,6 +34,9 @@
         <p>Un casamiento, unos quince años, un bautismo... Cada momento es importante hoy y cada vez que lo recuerdes, las fotografías son parte de la memoria, detalles que con el tiempo olvidamos, pero siguen estando en fotos y videos. </p>
         <p>Vos, como protagonista o invitado del evento, mereces disfrutar sin preocupaciones ese momento esperado, es por eso que me encanta tomar esa responsabilidad por vos, en registrar cada instante del evento mientras familia y amigos pasan un buen momento.</p>
     </div>
+    <div class="ornaments" style="position: relative; left: -168px; top: 173px; height: 0; width: 0;"><img src="side.svg" style="transform: rotate(-90deg);"></div>
+    <div class="ornaments" style="position: relative; left: 595px;top: 173px;height: 0;width: 0;"><img src="side.svg" style="transform: rotate(90deg);"></div>
+    <iframe onload="monitorvimeo(this)" class=homevimeo src="https://player.vimeo.com/video/193812481" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </section>
 <section class="carousel">
     <!--<article data-hash="/album:cande">
@@ -139,7 +142,7 @@ try {
       xfbml      : true,
       version    : 'v2.8'
     });
-    FB.AppEvents.logPageView();
+    //FB.AppEvents.logPageView();
     //FB.AppEvents.logEvent('battledAnOrc');
   };
 
@@ -166,7 +169,13 @@ try {
                     var that = this;
                     setTimeout(function(){
                         $(that).attr("data-tooltip", "Click para copiar numero!.")
-                    }, 2000)
+                    }, 2000);
+                    var type = $(this).attr('class').split(' ').filter(e => ['wapp', 'msn', 'email'].includes(e));
+                    ga('send', {
+                        hitType: 'event',
+                        eventCategory: `fast-contact ${type}`,
+                        eventAction: 'click'
+                    });
             });
         }
 </script>
