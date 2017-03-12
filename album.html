@@ -45,7 +45,7 @@
     $.getJSON(`albunes/conf.json`, function(data) {
         $("#fotoportada").attr("src", `albunes/${nombre}/low/${data[nombre].portada}`);
         $("#fecha").text(data[nombre].fecha)
-        $("#titulo").text(data[nombre].titulo)
+        $("#titulo, title").text(data[nombre].titulo)
         $("#descripcion").text(data[nombre].descripcion)
         $("#desarrollo").html(data[nombre].desarrollo)
         var v = data[nombre].video;
