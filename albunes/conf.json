@@ -2,52 +2,52 @@
     "cande": {
         "portada": "DSC_08560000900003.jpg",
         "tapa": "DSC_08540000100002.jpg",
-        "titulo": "Cande 15 años",
-        "fecha": "10. December '16",
-        "descripcion": "Hermosa Nadia haciendo su book de 15 años! Ultimas sesiones del año!",
+        "titulo": "CANDE - 15 AÑOS",
+        "fecha": "2017",
+        "descripcion": "Hermosa tarde de fotos con Cande en las Sierras de Córdoba.",
         "desarrollo": "<p>Me gusta tu mirada</p><p>me gustas tu</p><p>Me gusta como hablas</p><p> Me gustas tu</p>"
     },
     "erika_lucas": {
         "portada": "14915186_1221704034560929_3863704350790083644_n00037.jpg",
         "tapa": "14915186_1221704034560929_3863704350790083644_n00037.jpg",
-        "fecha": "10. December '16",
-        "titulo": "Erika y Lucas se aman como nunca antes!",
+        "fecha": "2016",
+        "titulo": "ERIKA Y LUCAS",
         "video": "https://player.vimeo.com/video/194434607",
-        "descripcion": "Hermosa Nadia haciendo su book de 15 años! Ultimas sesiones del año!",
+        "descripcion": "La bella pareja y sus dos princesas.",
         "desarrollo": "<p>Me gusta tu mirada</p><p>me gustas tu</p><p>Me gusta como hablas</p><p> Me gustas tu</p>"
     },
     "jaz": {
         "portada": "DSC_98260002000001.jpg",
         "tapa": "DSC_99160008200015.jpg",
-        "fecha": "10. December '16",
-        "titulo": "Jaz",
-        "descripcion": "Hermosa Nadia haciendo su book de 15 años! Ultimas sesiones del año!",
+        "fecha": "2017",
+        "titulo": "JAZMIN - 15 AÑOS",
+        "descripcion": "Excelente jornada en Carlos Paz, realizando el book de Jazmin.",
         "video": "https://player.vimeo.com/video/204688672",
         "desarrollo": "<p>Me gusta tu mirada</p><p>me gustas tu</p><p>Me gusta como hablas</p><p> Me gustas tu</p>"
     },
     "nadia": {
         "portada": "portada.jpg",
         "tapa": "tapa.jpg",
-        "fecha": "10. December '16",
-        "titulo": "Nadia 15 - añitos",
-        "descripcion": "Hermosa Nadia haciendo su book de 15 años! Ultimas sesiones del año!",
+        "fecha": "2016",
+        "titulo": "NADIA - 15 AÑOS",
+        "descripcion": "Una linda tarde en Alta Gracia haciendo el book de Nadia.",
         "desarrollo": "<p>Me gusta tu mirada</p><p>me gustas tu</p><p>Me gusta como hablas</p><p> Me gustas tu</p>"
     },
     "romina_lucas": {
         "portada": "DSC_665700007.jpg",
         "tapa": "DSC_663100002.jpg",
-        "fecha": "11. December '16",
-        "titulo": "Erika y Lucas - Amor incomparable",
-        "descripcion": "Romina y Lucas acarameladisimosss!",
+        "fecha": "2016",
+        "titulo": "ROMINA Y LUCAS",
+        "descripcion": "Book y Boda de Romina y Lucas, una pareja muy divertida.",
         "video" : "https://player.vimeo.com/video/196339503",
         "desarrollo": "<p>Me gusta tu mirada</p><p>me gustas tu</p><p>Me gusta como hablas</p><p> Me gustas tu</p>"
     },
     "tamara_matias": {
         "portada": "DSC_907900002.jpg",
         "tapa": "DSC_963400021.jpg",
-        "fecha": "Algun dia",
-        "titulo": "Tamara y Matias - Amor inmensurable",
-        "descripcion": "Tamara y Matias acarameladisimosss!",
+        "fecha": "2016",
+        "titulo": "TAMARA Y MATIAS",
+        "descripcion": "Book y Boda de Tamara y Matias, muy tiernos y alegres.",
         "desarrollo": "<p>Me gusta tu mirada</p><p>me gustas tu</p><p>Me gusta como hablas</p><p> Me gustas tu</p><p>Asi es como tu aroma a flores acarisia mi nariz</p>"
     }
 }
