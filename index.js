@@ -44,6 +44,7 @@ function load(a, selector) {
         goto(selector);
     loaded = a;
     if (a == "home.html") {
+        $('title').text("Marilyn Producciones");
         $("#greathome").show();
         $('#greatalbum').html("");
         //$(".homevimeo").attr("src", $(".homevimeo").attr("src"));
