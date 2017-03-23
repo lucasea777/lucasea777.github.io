@@ -1,3 +1,8 @@
+if (innerWidth < 900) {
+    var onres = () => $('#greathome section.portada').css({height: innerHeight});
+    onres();
+}
+
 function Utils() {
 
 }

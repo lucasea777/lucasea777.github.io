@@ -224,6 +224,10 @@ section.blabla iframe {
         width: 100%;
     }
 
+    #sobremi .estudios img {
+        height: 300px;
+    }
+
 }
 
 section.blabla header:after {
