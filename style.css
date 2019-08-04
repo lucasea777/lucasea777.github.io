@@ -485,11 +485,11 @@ section#sobremi .img-div .justificado {
 }
 
 img.anim-logo {
-    display: none;
+    display: initial;
 }
 
 video.anim-logo {
-    display: initial;
+    display: none;
 }
 
 footer {
