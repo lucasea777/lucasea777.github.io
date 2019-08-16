@@ -485,11 +485,14 @@ section#sobremi .img-div .justificado {
 }
 
 img.anim-logo {
-    display: initial;
+    display: none;
 }
 
 video.anim-logo {
-    display: none;
+    display: initial;
+    /* mix-blend-mode: color-burn; */
+    filter: brightness(80%);
+    background: radial-gradient(closest-corner at center calc(63%), #9d6f74, transparent 40% ) no-repeat;
 }
 
 footer {
