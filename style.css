@@ -308,7 +308,7 @@ section.portada .content {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.09);
+    background: rgba(0, 0, 0, 0.27);
 }
 
 section.portada #scene img,
@@ -492,7 +492,7 @@ video.anim-logo {
     display: initial;
     /* mix-blend-mode: color-burn; */
     filter: brightness(80%);
-    background: radial-gradient(closest-corner at center calc(63%), #9d6f74, transparent 40% ) no-repeat;
+    /* background: radial-gradient(closest-corner at center calc(63%), #9d6f74, transparent 40% ) no-repeat; */
 }
 
 footer {
